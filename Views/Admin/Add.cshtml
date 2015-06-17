@@ -1,0 +1,117 @@
+﻿@{
+    Layout = null;
+}
+@model project.Models.UserAccount
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/simple-sidebar.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-default">
+                    <a href="#">
+
+                        <img src="Images/admin.png" width="120" style="right" height="120" />
+                        Admin
+                    </a>
+                </li>
+
+                <li>
+
+                    <a href="/Admin/Add" style="left:20px;color:lightskyblue">Add Users</a>
+                </li>
+                <li>
+                    <a href="/Admin/ViewUser" style="left:20px;color:lightskyblue">View User</a>
+                </li>
+                <li>
+                    <a href="/Admin/Delete" style="left:20px;color:lightskyblue">Delete Users</a>
+                </li>
+                <li>
+                    <a href="/Admin/Search" style="left:20px;color:lightskyblue">Search user</a>
+                </li>
+                <li>
+                    <a href="/Admin/LogoutA" style="left:20px;color:lightskyblue">Logout</a>
+                </li>
+
+            </ul>
+        </div>
+
+        @*<img src=@Model.Image width="250" height="250" /><br /><br />*@
+
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <img src="Images/logo.png" />
+
+
+                        <p></p>
+                        <form action="Register" method="post" enctype="multipart/form-data">
+
+                            @Html.Label("Add User", new { style = "font-size:20px; margin-left:100px; margin-right:30px" }) <br /><br />
+
+                            @Html.TextBoxFor(model => model.Name, new { placeholder = "Username", @Autocomplete = "off" })
+                            <br /><br />
+
+                            @Html.TextBoxFor(model => model.Password, new { type = "password", placeholder = "Password", @Autocomplete = "off" })
+
+                            <br /><br />
+                            @Html.TextBoxFor(model => model.Email, new { type = "email", placeholder = "Email", @Autocomplete = "off" })
+                            <br /><br />
+                            @Html.TextBoxFor(model => model.Image, new { type = "file" })
+                            <input type="submit" value="Add" />
+
+                            @*@Html.TextBoxFor(m => m.Image, new { type="file"})*@
+                            <!-- Upload Image: <input type="file" name="image" /><br />-->
+
+
+
+
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="Scripts/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="Scripts/bootstrap.min.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</body>
+</html>
+

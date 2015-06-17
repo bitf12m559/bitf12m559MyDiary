@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+@using project.Models
+@model project.Models.ImageComment
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("DeleteC", "UserDiary", FormMethod.Post, new { @class = "container text-center" }))
+        {
+
+            @Html.LabelFor(m=>m.Id)
+            @Html.TextBoxFor(m => m.Id, new { required = "required" })
+
+
+
+
+
+
+            <input type="submit" value="Delete" />
+        }
+    </div>
+</body>
+
+
+</html>

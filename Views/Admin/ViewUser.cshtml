@@ -1,0 +1,166 @@
+﻿@{
+    Layout = null;
+}
+
+@using project.Models
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/simple-sidebar.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-default">
+                    <a href="#">
+
+                        <img src="Images/admin.png" width="120" style="right" height="120" />
+                        Admin
+                    </a>
+                </li>
+
+                <li>
+
+                    <a href="/Admin/Add" style="left:20px;color:lightskyblue">Add Users</a>
+                </li>
+                <li>
+                    <a href="/Admin/ViewUser" style="left:20px;color:lightskyblue">View User</a>
+                </li>
+                <li>
+                    <a href="/Admin/Delete" style="left:20px;color:lightskyblue">Delete Users</a>
+                </li>
+                <li>
+                    <a href="/Admin/Search" style="left:20px;color:lightskyblue">Search user</a>
+                </li>
+                <li>
+                    <a href="/Admin/LogoutA" style="left:20px;color:lightskyblue">Logout</a>
+                </li>
+
+            </ul>
+        </div>
+
+        @*<img src=@Model.Image width="250" height="250" /><br /><br />*@
+
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                       
+
+
+                        <p></p>
+                        <div class="row" style="padding-top:10px">
+                            <div class="col-md-3">
+                                <div class="list-group" style="min-height:750px; max-width:400px">
+                                    @*<label class="list-group-item active"></label>*@
+                                    @*<a class="list-group-item" href="#"></a>*@
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 pull-left">
+                                <section>
+                                    <div class="container">
+                                        <div class="centre">
+                                            <h2>All Users Data</h2>
+                                        </div>
+
+                                        <div class="col-md-6 pull-left">
+                                            <div id="signupbox">
+                                                <div class="panel panel-danger">
+                                                    <div class="panel-heading">
+                                                        <div class="panel-title">All Users Data</div>
+
+                                                    </div>
+
+
+
+                                                    <div class="form-group">
+
+                                                        @foreach ( UserAccount i in ViewBag.m)
+                                                        {
+
+                                                            <div class="form-group">
+
+                                                                <div class="panel-heading">
+                                                                    <label for="username" class="col-md-3 control-label">Image</label><br />
+
+                                                                    <div class="col-md-9">
+                                                                        <img src="/Files/@i.Image" width="50" height="50" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="username" class="col-md-3 control-label">Name</label><br />
+                                                                    <div class="col-md-9">
+                                                                        @i.Name
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="username" class="col-md-3 control-label">Email</label><br />
+                                                                    <div class="col-md-9">
+                                                                        @i.Email
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="username" class="col-md-3 control-label">Id</label><br />
+                                                                    <div class="col-md-9">
+                                                                      @i.Id
+                                                                    </div>
+                                                                </div>
+                                                                <button>@Html.ActionLink("UpdateUser", "Update", new { id = i.Id })</button>
+                                                                <button>@Html.ActionLink("Deletem", "Delete", new { id = i.Id })</button>
+
+
+                                                            </div>
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="Scripts/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="Scripts/bootstrap.min.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</body>
+</html>
+

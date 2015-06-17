@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@model project.Models.BestThought
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BestAdd</title>
+</head>
+<body>
+    <div>
+        @if (Session["islogin"] != null)
+        {
+            <a href="~/UserDiary/Logout" style="left:20px;color:white; font-size:medium">Log Out</a>
+
+        }
+        else
+        {
+
+        }
+        <br />
+        <br />
+
+
+        <img src="~/Images/write.jpg" width="300" height="354" />
+        <br />
+        
+        @using (Html.BeginForm("AddThought", "UserDiary", FormMethod.Post, new { @class = "container text-center" }))
+    {
+
+        <br />
+
+                @Html.LabelFor(m =>m.Title)
+                @Html.TextBoxFor(m => m.Title, new { required = "required" })
+                 @*Html.TextBoxFor(m=>@Session["uid"])*@
+                <br />
+                <br />
+                @Html.LabelFor(m =>m.Note)
+                @Html.TextAreaFor(m => m.Note, new { required = "required", @cols = "80", @rows = "4" })
+
+
+                <br />
+
+                <input type="submit" value="Save" />
+            }
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+﻿@{
+    Layout = null;
+}
+@model project.Models.UserDiary
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Searching</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Bootstrap/css/bootstrap.min.css" />
+
+    <script type="text/javascript" src="~/Content/jQuery/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="~/Content/Bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <!-- Custom Fonts -->
+
+    <link rel="stylesheet" href="~/Conetnt/Bootstrap/font-awesome/css/font-awesome.min.css" type="text/css">
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="~/Content/css/animate.min.css" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/css/creative.css" type="text/css">
+</head>
+<body>
+    @if (Session["islogin"] != null)
+    {
+        <a href="~/UserDiary/Logout" style="left:20px;color:white; font-size:medium">Log Out</a>
+
+    }
+    else
+    {
+
+    }
+         @*<h1> hii User Search Result is below</h1>
+    <img src="~/Images/hand.jpg" width="275" height="183" /><br />
+    <br />
+  <button><a href="~/UserDiary/DeleteNote" style="left:20px;color:orange; font-size:large">Go Back</a></button>
+    <br />
+    <br />
+   <div>
+       Title    Note
+        <table border="1">
+           
+          <tr> 
+              
+            <td> @Model.Title</td>
+              
+          <td> @Model.Note</td>
+              </tr>
+        </table>
+     </div>*@
+
+    <section class="container">
+    @*<img src="~/Images/login.jpg" style="left:" />*@
+    @*<h3 style="font-weight:700">LOGIN</h3>*@
+
+    <div class="row" style="padding-top:10px">
+        <div class="col-md-3">
+            <div class="list-group" style="min-height:750px; max-width:300px">
+                @*<label class="list-group-item active"></label>*@
+                @*<a class="list-group-item" href="#"></a>*@
+            </div>
+        </div>
+
+        <div class="col-md-6 pull-left">
+            <section>
+                <div class="container">
+                    <div class="centre">
+                        <h2>Search Results</h2>
+                    </div>
+
+                    <div class="col-md-6 pull-left">
+                        <div id="signupbox">
+                            <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <div class="panel-title"> Search Results</div>
+
+                                </div>
+
+                                <div class="panel-body">
+
+                                    <div class="form-group">
+
+                                            <div class="form-group">
+                                                <label for="username" class="col-md-3 control-label">Title</label><br />
+
+                                                <div class="col-md-9">
+                                                    @Model.Title
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="username" class="col-md-3 control-label">Note</label><br />
+                                                <div class="col-md-9">
+                                                    @Model.Note
+                                                </div>
+                                            </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="col-md-3 control-label">Dtae Time</label><br />
+                                            <div class="col-md-9">
+                                                @Model.DateTime
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+</body>
+</html>

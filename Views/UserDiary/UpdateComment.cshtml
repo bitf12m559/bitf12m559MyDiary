@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+@model project.Models.ImageComment
+ 
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UpadteComment</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("UpdateC", "UserDiary", FormMethod.Post, new { @class = "container text-center" }))
+        {
+
+    @Html.LabelFor(m =>m.Comment)
+    @Html.TextBoxFor(m => m.Comment, new { required = "required" })
+   <input type="button" value="update" />
+        }
+    <br />
+        
+
+    </div>
+</body>
+</html>

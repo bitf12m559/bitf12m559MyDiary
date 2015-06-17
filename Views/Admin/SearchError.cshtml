@@ -1,0 +1,93 @@
+﻿@{
+    Layout = null;
+}
+
+@model project.Models.UserAccount
+
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/Bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Bootstrap/css/bootstrap.min.css" />
+
+    <script type="text/javascript" src="~/Content/jQuery/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="~/Content/Bootstrap/js/bootstrap.min.js"></script>
+    <title>Creative - Start Bootstrap Theme</title>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <!-- Custom Fonts -->
+
+    <link rel="stylesheet" href="~/Conetnt/Bootstrap/font-awesome/css/font-awesome.min.css" type="text/css">
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="~/Content/css/animate.min.css" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/css/creative.css" type="text/css">
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-header" href="#" style="margin-left:15px; color:lightgoldenrodyellow; font-size:30px; font-style:italic">Welcome  To My Diary</a>
+
+        </div>
+
+        <div class=" navbar-default navbar-right">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <div>
+                <ul class="nav navbar-nav navbar-right" style="margin-right:15px">
+
+
+
+                    <!----  <li>
+                          <a class="page-scroll" href="#service">Services</a>
+                      </li> -->
+
+                    <li>
+                        @*<li>
+                                @Html.ActionLink("Login", "Login", "Account")
+                            </li>
+                            <li>
+                            <li>
+                                @Html.ActionLink("Register", "Register", "Account")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Diary", "Diary", "Diary")
+                            </li>*@
+
+
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <img src="~/Images/logo.png" />
+
+    <br />
+    <br />
+    <h2>
+        Search By Id!!
+    </h2>
+    <div>
+        <class ="container text-center">
+            <form action="~/Admin/Searching" method="post">
+
+                @Html.LabelFor(m => m.Id)
+                @Html.TextBoxFor(m => m.Id, new { required = "required" })
+
+                <input type="submit" value="Search" /><a style="color:red">Data do not exist that you want to search kindly Search again!!</a>
+
+
+            </form>
+        </class>
+    </div>
+
+</body>
+
+</html>

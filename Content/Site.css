@@ -1,0 +1,116 @@
+﻿body {
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: red;
+    background-color: yellow;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+#bg {
+  position: relative; 
+  top: 0; 
+  left: 0; 
+	
+ 
+  min-width: 100%;
+  min-height: 100%;
+}
+.editor-label {
+    margin: 1em 0 0 0;
+}
+.bg{
+height:100px;
+width: 100px;
+
+}
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+.point-top,
+.point-bottom {
+    width: 0;
+    height: 0;
+    border-right: 75px solid transparent;
+    border-left: 75px solid transparent;
+}
+
+.point-top {
+  border-bottom: 50px solid rgb(177, 99, 163);
+  border-top: 0; 
+}
+
+.triangles-menu {
+  background-color: rgb(177, 99, 163);
+  width: 150px;
+  padding-bottom: 1em;
+}
+
+.triangles-menu a {
+  display: block;
+  font-family: 'Alegreya Sans', sans-serif;
+  font-weight: 100;
+  font-size: 2em;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: .5em;
+}
+
+.triangles-menu a:first-of-type { 
+  padding-top: 1em;
+  text-decoration: underline;
+}
+
+.triangles-menu a:hover {
+  text-decoration: underline;
+}
+
+.point-bottom {
+  border-top: 50px solid rgb(177, 99, 163);
+  border-bottom: 0;
+}

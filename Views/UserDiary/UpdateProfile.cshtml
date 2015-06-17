@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+
+@model project.Models.UserAccount
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update Your Profile</title>>
+</head>
+<body>
+ 
+    
+    <div>
+
+        @using (Html.BeginForm("Update", "UserDiary", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+
+
+            @Html.Label("Update Your Profile", new { style = "font-size:20px; margin-left:100px; margin-right:30px" }) <br /><br />
+
+            @Html.HiddenFor(m => m.Id, new { placeholder = "Username", @Autocomplete = "off" })
+          
+
+            @Html.TextBoxFor(m => m.Name, new { placeholder = "Username", @Autocomplete = "off" })
+            <br /><br />
+
+            @Html.TextBoxFor(model => model.Password, new { placeholder = "Type", @Autocomplete = "off" })
+
+            <br /><br />
+            @Html.HiddenFor(model => model.Type, new { placeholder = "Password", @Autocomplete = "off" })
+
+            @Html.TextBoxFor(model => model.Email, new { type = "email", placeholder = "Email", @Autocomplete = "off" })
+            <br /><br />
+            @Html.TextBoxFor(model =>model.Image, new { type = "file" })
+            <input type="submit" value="Update" />
+
+            @*@Html.TextBoxFor(m => m.Image, new { type="file"})*@
+            <!-- Upload Image: <input type="file" name="image" /><br />-->
+
+
+        }
+
+
+
+
+    </div>
+</body>
+</html>

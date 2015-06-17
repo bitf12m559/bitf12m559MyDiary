@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+@model project.Models.BestImage
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BestImage</title>
+</head>
+<body>
+    <div>
+
+        <h2> You can Add Best Images Here </h2>
+        <br />
+
+        <form action="/UserDiary/AddImage" method="post" enctype="multipart/form-data">
+        
+
+
+            @Html.TextBoxFor(m=>m.Image ,new { type = "file" })
+            <br /><br />
+
+            <input type="submit" value="AddImage" />
+        
+            
+            </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿@{
+    Layout = null;
+}
+@model project.Models.UserAccount
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/Bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Bootstrap/css/bootstrap.min.css" />
+
+    <script type="text/javascript" src="~/Content/jQuery/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="~/Content/Bootstrap/js/bootstrap.min.js"></script>
+    <title>Creative - Start Bootstrap Theme</title>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <!-- Custom Fonts -->
+
+    <link rel="stylesheet" href="~/Conetnt/Bootstrap/font-awesome/css/font-awesome.min.css" type="text/css">
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="~/Content/css/animate.min.css" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/css/creative.css" type="text/css">
+</head>
+
+
+<body>
+  
+
+
+    <h2>Delete User Diary then Delete User</h2>
+    <button><a href="~/Admin/ViewAllNote" style="left:20px;color:orange; font-size:large">Click to Delete User Diary</a></button>
+    <br />
+
+    @using (Html.BeginForm("DeleteProfile", "UserDiary", FormMethod.Post, new { @class = "container text-center" }))
+    {
+        
+     
+        @Html.LabelFor(m => m.Id)
+        @Html.TextBoxFor(m =>m.Id, new { required = "required" })
+
+    
+
+        <input type="submit" value="Delete" />
+    }
+
+
+</body>
+</html>

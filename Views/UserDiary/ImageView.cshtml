@@ -1,0 +1,173 @@
+﻿@{
+    Layout = null;
+}
+@model project.Models.UserDiary
+@using project.Models
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/style3.css" type="text/css" />
+    <script type="text/javascript" src="~/Content/jQuery/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="~/Content/Bootstrap/js/bootstrap.min.js"></script>
+
+
+    @*<link rel="stylesheet" type="text/css" href="~/Content/reset.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/responsive.css"*@>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body>
+
+
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-default">
+                    <a href="#">
+
+                        <img src="/Files/@Session["image"]" height="50" width="50" />
+                        @Session["uname"]
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Home/Index" style="left:20px;color:white">Home</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/AddNote" style="left:20px;color:white">Add Note</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/DeleteNote" style="left:20px;color:white">Delete Note</a>
+                </li>
+
+                <li>
+                    <a href="/UserDiary/SearchNote" style="left:20px;color:white">Search Note</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/ViewAllNote" style="left:20px;color:white">View All Note</a>
+                </li>
+
+                <li>
+                    <a href="/BestThought/BestThought" style="left:20px;color:white">BestThought</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/ImageView" style="left:20px;color:white">Image View</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/ViewUser" style="left:20px;color:white"> Update Profile</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/Logout" style="left:20px;color:white">Log Out</a>
+                </li>
+                <li>
+            </ul>
+        </div>
+
+       <h1>Best Thought Images List</h1>
+        <section class="listings">
+            <div class="wrapper">
+                <ul class="properties_list">
+                    <li>
+
+                        @foreach (BestImage v in ViewBag.imgs)
+                        {
+
+                        <li>
+                            <form action="~/UserDiary/AddComment" method="post">
+                                <br />
+                                <img src="~/Files/@v.Image" width="300" height="150" alt="" title="" class="property_img" />
+                              
+                                @{
+                            MyDataEntities de = new MyDataEntities();
+                                }
+
+                                <div class="property_details">
+                                    <div class="form-group">
+                                        @*<label for="username" class="col-sm-2">Comment</label><br />*@
+
+                                        <div class="col-md-6">
+
+                                            <input type="hidden" name="ImageId" value="@v.Id" />
+                                            Comment  <input type="text" class="form-control" placeholder="Comment" name="Comment" />
+                                            <input type="submit" value="Comment" class="btn btn-info" style="margin-top:10px;margin-left:180px" />
+                                            <a href="/UserDiary/Download/@v.Id"><input class="btn btn-danger" type="button" value="Download"> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                @foreach (ImageComment c in v.ImageComments)
+                                {
+
+
+                                    try
+                                    {
+                                        UserAccount u = de.UserAccounts.First(x => x.Id == c.UserId);
+
+                                        if (u.Id == c.UserId)
+                                        {
+                                            <label>User:</label>
+                                          <img src="~/Files/@u.Image" height="20" width="20" />  @u.Name<br />
+                                            <label>Comment:</label>
+                                            @c.Comment <br />
+                                            <button class="alert-danger"> @Html.ActionLink("Delete", "DeleteC", new { id = c.Id })</button>
+
+                                        }
+
+
+                                    }
+                                    catch (Exception e) { }
+
+
+                                   
+
+                                }
+
+</div>
+
+
+
+
+
+                            </form>
+
+                        </li>
+                        }
+                    </ul>
+                </div>
+
+            </section>	
+    </div>
+   
+
+        <!-- /#wrapper -->
+        <!-- jQuery -->
+        <script src="Scripts/jquery.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="Scripts/bootstrap.min.js"></script>
+        <!-- Menu Toggle Script -->
+        <script>
+            $("#menu-toggle").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+        </script>
+</body>
+</html>
+

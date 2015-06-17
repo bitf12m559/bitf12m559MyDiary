@@ -1,0 +1,112 @@
+﻿@{
+    Layout = null;
+}
+@model project.Models.UserDiary
+@using project.Models
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/simple-sidebar.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body>
+
+
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-default">
+                    <a href="#">
+
+                        <img src="/Files/@Session["image"]" height="50" width="50" />
+                        @Session["uname"]
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Home/Index" style="left:20px;color:white">Home</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/AddNote" style="left:20px;color:white">Add Note</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/DeleteNote" style="left:20px;color:white">Delete Note</a>
+                </li>
+
+                <li>
+                    <a href="/UserDiary/SearchNote" style="left:20px;color:white">Search Note</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/ViewAllNote" style="left:20px;color:white">View All Note</a>
+                </li>
+
+                <li>
+                    <a href="/BestThought/BestThought" style="left:20px;color:white">BestThought</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/ImageView" style="left:20px;color:white">Image View</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/ViewUser" style="left:20px;color:white"> Update Profile</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/Logout" style="left:20px;color:white">Log Out</a>
+                </li>
+                <li>
+            </ul>
+        </div>
+        <img src="/Images/emotion.jpg" width="259" height="194" />
+        <section id="one" class="wrapper style2 special">
+            <header class="major">
+                @using (Html.BeginForm("Deletem", "UserDiary", FormMethod.Post, new { @class = "container text-center" }))
+                {
+
+                    @Html.LabelFor(m => m.Title)
+                    @Html.TextBoxFor(m => m.Title, new { required = "required" })
+
+
+
+
+
+
+                    <input type="submit" value="Delete" />
+                }
+
+
+
+            </header>
+
+        </section>
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="Scripts/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="Scripts/bootstrap.min.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</body>
+</html>
+

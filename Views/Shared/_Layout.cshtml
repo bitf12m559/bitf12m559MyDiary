@@ -1,0 +1,109 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+   
+   
+
+    <footer>
+
+        <section class="bg-primary" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h1>About Us</h1>
+                        <h2 class="section-heading">Online Diary(Express your Emotions)!</h2>
+                        <hr class="light">
+                        <p class="text-faded">Start to save your emotions and thoghts no one can read that except you so without any worry of beign lost we provide you the way to save your peronal notes!!</p>
+                        <a href="~/Account/Login" class="btn btn-default btn-xl">Get Started to save Notes :)!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center" style="margin-bottom:15px; color:black; font-size:30px; font-style:italic">
+                        <h2 class=" section-heading">
+                            Let's Get In Touch!
+                        </h2>
+                        <hr class="primary">
+
+                        <p>you can contact with Us via Mail and phone!</p>
+                    </div>
+                    <div class="col-lg-4 col-lg-offset-2 text-center">
+                        <i class="fa fa-phone fa-3x wow bounceIn"></i>
+                        <img src="~/Images/phone.png" class="img-responsive" alt="">
+                        <p>042-3578900</p>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                        <img src="~/Images/Email.png" class="img-responsive" alt="">
+                        <p><a href="mailto:your-email@your-domain.com" style="icon">feedback@rabia.umar61@yahoo.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <a class="navbar-header" href="#" style="margin-left:15px; color:lightgoldenrodyellow; font-size:30px; font-style:italic"> My Diary </a>
+
+            </div>
+
+            <div class=" navbar-default navbar-right">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+
+            <div>
+                <ul class="nav navbar-nav navbar-right" style="margin-right:30px ;font-size:18px">
+
+                    <li>
+                        <a class=" page-scroll" href="#about">About</a>
+                    </li>
+
+                    <li>
+                        @Html.ActionLink("Home", "Index", "Home")
+                    </li>
+
+                    <li>
+                        @Html.ActionLink("Login", "Login", "Account")
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                    <li>
+                        @Html.ActionLink("Register", "Register", "Account")
+                    </li>
+
+                </ul>
+
+
+            </div>
+        </nav>
+        <font color="red">   <p>Copyright &copy; Online_Diary_System | design by rabia.umar61@yahoo.com </p> </font>
+    </footer>
+
+    
+
+</body>
+</html>

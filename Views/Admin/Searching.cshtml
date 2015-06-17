@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+
+@model project.Models.UserAccount
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SearchU</title>
+</head>
+<body>
+  <li >
+      <a href="/Admin/LogoutA" style="left:20px;color:lightskyblue">Logout</a>
+      </li>
+    <br />
+
+
+    <h2> Search Data is below</h2>
+    <div>
+        
+
+        <button><a href="~/Admin/Search" style="left:20px; font-size:large;color:orange">Go Back</a></button>
+        <br />
+        <br />
+        <div>
+          
+            <table border="1">
+
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Password</td>
+                    <td>Type</td>
+                    <td>Image</td>
+                </tr>
+                <tr>
+
+                    <td> @Model.Id</td>
+                    <td> @Model.Name</td>
+                    <td>@Model.Password</td>
+                    <td>@Model.Type</td>
+                    <td>@Model.Image</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,193 @@
+﻿@{
+    Layout = null;
+}
+@model project.Models.UserAccount
+@using project.Models
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/simple-sidebar.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body>
+
+
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-default">
+                    <a href="#">
+
+                        <img src="/Files/@Session["image"]" height="50" width="50" />
+                        @Session["uname"]
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Home/Index" style="left:20px;color:white">Home</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/AddNote" style="left:20px;color:white">Add Note</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/DeleteNote" style="left:20px;color:white">Delete Note</a>
+                </li>
+               
+                <li>
+                    <a href="/UserDiary/SearchNote" style="left:20px;color:white">Search Note</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/ViewAllNote" style="left:20px;color:white">View All Note</a>
+                </li>
+
+                <li>
+                    <a href="/BestThought/BestThought" style="left:20px;color:white">BestThought</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/ImageView" style="left:20px;color:white">Image View</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/ViewUser" style="left:20px;color:white"> Update Profile</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/Logout" style="left:20px;color:white">Log Out</a>
+                </li>
+                <li>
+</ul>
+        </div>
+
+        @*<img src=@Model.Image width="250" height="250" /><br /><br />*@
+
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <section class="container">
+                            @*<img src="~/Images/login.jpg" style="left:" />*@
+                            @*<h3 style="font-weight:700">LOGIN</h3>*@
+
+                            <div class="row" style="padding-top:10px">
+                                <div class="col-md-3">
+                                    <div class="list-group" style="min-height:750px; max-width:400px">
+                                        @*<label class="list-group-item active"></label>*@
+                                        @*<a class="list-group-item" href="#"></a>*@
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 pull-left">
+                                    <section>
+                                        <div class="container">
+                                            <div class="centre">
+                                                <h2>Your Profile Data</h2>
+                                            </div>
+
+                                            <div class="col-md-6 pull-left">
+                                                <div id="signupbox">
+                                                    <div class="panel panel-danger">
+                                                        <div class="panel-heading">
+                                                            <div class="panel-title">Profile Data</div>
+
+                                                        </div>
+                                                        @{
+                                                            MyDataEntities ee = new MyDataEntities();
+                                                        }
+
+
+                                                        <div class="form-group">
+
+                                                            @foreach (UserAccount i in ViewBag.m)
+                                                            {
+                                                                int j = (int)Session["id"];
+                                                                if (i.Id == j)
+                                                                {
+
+                                                                    <div class="panel panel-default">
+                                                                        <div class="panel-heading">
+                                                                            <img src="~/Files/@i.Image" height="100" width="100" />
+
+                                                                            <div class="form-group">
+                                                                                <label for="username" class="col-md-3 control-label">Name</label><br />
+                                                                                <div class="col-md-9">
+                                                                                    <table>
+                                                                                        <tr> @i.Name</tr>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="username" class="col-md-3 control-label">Email</label><br />
+                                                                                <div class="col-md-9">
+                                                                                    <table>
+                                                                                        <tr> @i.Email</tr>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="username" class="col-md-3 control-label">Image</label><br />
+                                                                                <div class="col-md-9">
+                                                                                    <table>
+                                                                                        <tr>@i.Image</tr>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <button>@Html.ActionLink("Update", "UpdateProfile", new { id = i.Id })</button>
+                                                                    <button>@Html.ActionLink("DeletePofile", "Delete", new { id = i.Id })</button>
+                                                                }
+                                                            }
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+
+                        </section>
+
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="Scripts/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="Scripts/bootstrap.min.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,249 @@
+﻿@{
+    Layout = null;
+}
+
+@using project.Models
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/simple-sidebar.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body>
+
+
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-default">
+                    <a href="#">
+
+                        <img src="/Files/@Session["image"]" height="50" width="50" />
+                        @Session["uname"]
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Home/Index" style="left:20px;color:white">Home</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/AddNote" style="left:20px;color:white">Add Note</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/DeleteNote" style="left:20px;color:white">Delete Note</a>
+                </li>
+
+                <li>
+                    <a href="/UserDiary/SearchNote" style="left:20px;color:white">Search Note</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/ViewAllNote" style="left:20px;color:white">View All Note</a>
+                </li>
+
+                <li>
+                    <a href="/BestThought/BestThought" style="left:20px;color:white">BestThought</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/ImageView" style="left:20px;color:white">Image View</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/ViewUser" style="left:20px;color:white"> Update Profile</a>
+                </li>
+                <li>
+                    <a href="/BestThought/BestAdd" style="left:20px;color:white">Add Best Thought</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/BestImage" style="left:20px;color:white">Add Best Image</a>
+                </li>
+                <li>
+                    <a href="/UserDiary/Logout" style="left:20px;color:white">Log Out</a>
+                </li>
+                <li>
+            </ul>
+        </div>
+
+        <section id="one" class="wrapper style2 special">
+            <header class="major">
+                <div>
+                    <section class="container">
+                    @*<img src="~/Images/login.jpg" style="left:" />*@
+                    @*<h3 style="font-weight:700">LOGIN</h3>*@
+
+                    <div class="row" style="padding-top:10px">
+                        <div class="col-md-3">
+                            <div class="list-group" style="min-height:750px; max-width:300px">
+                                @*<label class="list-group-item active"></label>*@
+                                @*<a class="list-group-item" href="#"></a>*@
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 pull-left">
+                            <section>
+                                <div class="container">
+                                    <div class="centre">
+                                        <h2>List of  Best Thoughts Of Users</h2>
+                                    </div>
+
+                                    <div class="col-md-6 pull-left">
+                                        <div id="signupbox">
+                                            <div class="panel panel-danger">
+                                                <div class="panel-heading">
+                                                    <div class="panel-title">
+                                                        List of  Best Thoughts Of Users<div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @foreach (BestThought s in ViewBag.Note)
+                                                {
+                                                    <div class="panel-heading">
+                                                        <div class="panel-body">
+
+                                                            <div class="form-group">
+                                                                <form action="~/BestThought/AddC" method="post">
+                                                                    <br />
+                                                                    <div class="form-group">
+                                                                        <label for="username" class="col-sm-3">Title</label>
+
+                                                                        <div class="col-sm-8">
+                                                                            @s.Title
+                                                                        </div>
+                                                                    </div>
+                                                                    <br />
+
+                                                                    <div class="form-group">
+                                                                        <label for="username" class="col-sm-3">Note</label>
+
+                                                                        <div class="col-sm-8">
+                                                                            @s.Note
+                                                                        </div>
+                                                                    </div>
+                                                                    <br />
+
+                                                                    <div class="form-group">
+                                                                        <label for="username" class="col-sm-3">Date</label>
+
+                                                                        <div class="col-sm-8">
+                                                                            @s.DateTime
+                                                                        </div>
+                                                                    </div>
+                                                                    <br />
+                                                                    @{
+                                                                   MyDataEntities de = new MyDataEntities();
+
+                                                                      int i = (int)Session["id"];
+                                                                      
+                                                                    }
+                                                                    
+                                                                    <div class="form-group">
+                                                                      <label for="username" class="col-sm-3">Comment</label>
+                                                                        
+
+                                                                        <div class="col-sm-8">
+
+                                                                            <input type="hidden" name="NoteId" value="@s.Id" />
+                                                                            <input type="text" class="form-control" placeholder="Comment" name="Comment" />
+                                                                            <input type="submit" value="Comment" class="btn btn-info" style="margin-top:10px;margin-left:180px" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <br />
+
+                                                                    @foreach (Comment c in s.Comments)
+                                                                    {
+                                                                        try
+                                                                        {
+                                                                            UserAccount u = de.UserAccounts.First(x => x.Id == c.UserId);
+
+                                                                            <div class="form-group">
+                                                                              <label for="username" class="col-sm-3"></label>
+                                                                                <div class="col-sm-8">
+                                                                               <img src="~/Files/@u.Image" height="20" width="20" />
+                                                                                
+                                                                            </div>
+                                                                         </div>
+                                                                            <div class="form-group">
+                                                                               
+                                                                              <label for="username" class="col-sm-3">@u.Name</label>
+                                                                                <div class="col-sm-8">
+                                                                                    @c.Comment1
+                                                                                </div>
+                                                                            </div>
+                                                                            if (c.UserId == i)
+                                                                            {
+
+
+                                                                                <button> @Html.ActionLink("Delete", "DeleteC", new { id = c.Id })</button>
+                                                                            }
+                                                                        }
+
+                                                                        catch (Exception e) { }
+
+                                                                    }
+
+
+
+
+                                                                </form>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                }
+
+
+
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+        </section>
+
+
+    </div>
+
+
+
+            </header>
+
+        </section>
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="Scripts/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="Scripts/bootstrap.min.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</body>
+</html>
+

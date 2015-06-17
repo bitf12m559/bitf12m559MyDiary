@@ -1,0 +1,207 @@
+﻿@{
+    Layout = "~/views/shared/_layout.cshtml";
+}
+
+@model project.Models.UserAccount
+
+
+<html>
+<head>
+    <title>
+
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/Bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Bootstrap/css/bootstrap.min.css" />
+
+    <script type="text/javascript" src="~/Content/jQuery/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="~/Content/Bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <!-- Custom Fonts -->
+
+    <link rel="stylesheet" href="~/Conetnt/Bootstrap/font-awesome/css/font-awesome.min.css" type="text/css">
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="~/Content/css/animate.min.css" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/css/creative.css" type="text/css">
+</head>
+
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-header" href="#" style="margin-left:15px; color:lightgoldenrodyellow; font-size:30px; font-style:italic">Welcome  To My Diary</a>
+
+        </div>
+
+        <div class=" navbar-default navbar-right">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+
+        <div>
+            <ul class="nav navbar-nav navbar-right" style="margin-right:30px ;font-size:18px">
+
+                <li>
+                    <a class=" page-scroll" href="#about">About</a>
+                </li>
+
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+
+                <li>
+                    @Html.ActionLink("Login", "Login", "Account")
+                </li>
+                <li>
+                    <a class="page-scroll" href="#contact">Contact</a>
+                </li>
+
+                @*<li>
+                        @Html.ActionLink("Diary", "Diary", "Diary")
+                    </li>*@
+
+
+            </ul>
+
+
+        </div>
+    </nav>
+    <header>
+        <section class="container">
+            @*<img src="~/Images/regst.jpg" style="left" />*@
+            <br />
+            <br />
+            <div>
+
+
+                <div class="row" style="padding-top:10px">
+                    <div class="col-md-3">
+                        <div class="list-group" style="min-height:750px; max-width:300px">
+                            @*<label class="list-group-item active"></label>*@
+                            @*<a class="list-group-item" href="#"></a>*@
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 pull-left">
+                        <section>
+                            <div class="container">
+                                <div class="center">
+                                    <h2>Register Your Self</h2>
+                                </div>
+
+                                <div class="col-md-6 pull-left">
+                                    <div id="signupbox">
+                                        <div class="panel panel-danger">
+                                            <div class="panel-heading">
+                                                <div class="panel-title">Register</div>
+
+                                            </div>
+
+                                            <div class="panel-body">
+
+                                                <div class="form-group">
+                                                    <form id="signupform" action="/Account/Register2" method="post" class="form-horizontal" role="form">
+
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.Name, new { @class = "col-md-3 control-label" })
+
+                                                            <div class="col-md-9">
+                                                                @Html.TextBoxFor(m => m.Name, new { required = "required", @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
+
+                                                            <div class="col-md-9">
+                                                                @Html.PasswordFor(m => m.Password, new { required = "required", @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label" })
+
+                                                            <div class="col-md-9">
+                                                                @Html.TextBoxFor(m => m.Email, new { required = "required", type = "email", @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.Image, new { @class = "col-md-3 control-label" })
+
+                                                            <div class="col-md-9">
+                                                                @Html.TextBoxFor(m => m.Image, new { type = "file" })
+                                                            </div>
+                                                        </div>
+
+
+                                                        <input type="submit" value="Register" /><a style="color:red">UserName already exist enter anothername kindly!!</a>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                </div>
+
+                @*<form action="/Account/Register2" method="post" enctype="multipart/form-data">
+                                    {
+                                    @Html.LabelFor(m => m.Name)
+                                    @Html.TextBoxFor(m => m.Name, new { required = "required" })
+                                    @Html.ValidationMessageFor(model => model.Name)
+                                    <br />
+                                    <br />
+                                    @Html.LabelFor(m => m.Password)
+                                    @Html.PasswordFor(m => m.Password, new { required = "required" })
+                                    @Html.ValidationMessageFor(model => model.Password)
+                                    <br />
+                                    <br />
+                                    @Html.LabelFor(m => m.Email)
+                                    @Html.TextBoxFor(m => m.Email, new { required = "required", type = "email" })
+                                    @Html.ValidationMessageFor(model => model.Email)
+                                    <br />
+
+                                    @Html.TextBoxFor(m => m.Image, new { type="file"})
+                                   <!-- Upload Image: <input type="file" name="image" /><br />-->
+
+                                    <br />
+
+
+                                    <input type="submit" value="Register" />
+
+                                    }
+
+
+                    </form>*@
+
+
+
+        </section>
+    </header>
+    <aside class="bg-dark">
+
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Get Started To Express Your Feeligns!</h2>
+
+                <a href="#" class="btn btn-default btn-xl wow tada">Start Up</a>
+
+            </div>
+        </div>
+
+    </aside>
+
+
+
+</body>
+</html>
